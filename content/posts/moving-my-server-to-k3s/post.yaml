@@ -1,0 +1,11 @@
+title:
+  en: Moving my whole server to k3s
+  fr: Passer tout mon serveur sur k3s
+summary:
+  en: About twenty-five Docker stacks moved to a two-node k3s cluster. It works, but for now Kubernetes feels heavy.
+  fr: Une vingtaine de stacks Docker passées sur un cluster k3s à deux nœuds. Ça marche, mais pour l'instant Kubernetes me paraît lourd.
+date: 2026-11-03
+tags:
+- Docker
+- Kubernetes
+- DevOps
