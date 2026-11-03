@@ -1,6 +1,7 @@
 .git
 .github
 k8s
+vendor
 Dockerfile
 .dockerignore
 .gitignore

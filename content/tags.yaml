@@ -1,0 +1,31 @@
+# The filters on /projects, in this order; a project matches a filter by its languages or tags
+- name: Python
+  icon: /img/languages/Python.svg
+- name: HTML
+  icon: /img/languages/html5.svg
+- name: CSS
+  icon: /img/languages/css3.svg
+- name: Javascript
+  icon: /img/languages/JS.svg
+- name: PHP
+  icon: /img/languages/PHP.svg
+- name: Git
+  icon: /img/languages/git-simple.svg
+- name: Github
+  icon: /img/languages/github.svg
+- name: NodeJS
+  icon: /img/languages/nodejs.svg
+- name: MongoDB
+  icon: /img/languages/mongodb-simple.svg
+- name: Docker
+  icon: /img/languages/docker.svg
+- name: Web Scraping
+- name: VPS
+- name: Open-Source
+- name: Server Management
+- name: Game Development
+- name: School Project
+- name: SimplePyGUI
+- name: DiscordJS
+- name: Pygame
+- name: Web Development

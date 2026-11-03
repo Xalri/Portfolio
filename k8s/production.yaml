@@ -1,5 +1,6 @@
 # The portfolio on k3s, deployed by Portainer from this file and redeployed by .github/workflows/deploy.yml
-# after each push. The image comes from ghcr.io (pull secret ghcr).
+# after each push. The image comes from ghcr.io (pull secret ghcr); the settings are the namespace's secret
+# website-env, made in the cluster, never in this repository.
 apiVersion: apps/v1
 kind: Deployment
 metadata:
@@ -31,6 +32,12 @@ spec:
         - name: website
           image: ghcr.io/xalri/portfolio:main
           imagePullPolicy: Always
+          # MAILER_DSN (and optionally MAIL_FROM, MAIL_TO) for the contact form, made in the cluster; without it
+          # the site runs and the form answers that sending failed
+          envFrom:
+            - secretRef:
+                name: website-env
+                optional: true
           ports:
             - containerPort: 80
           readinessProbe:

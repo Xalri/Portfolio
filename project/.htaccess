@@ -1,6 +1,0 @@
-
-ErrorDocument 404 /404
-
-# RewriteEngine On
-
-Options -Indexes

@@ -1,0 +1,30 @@
+# Shown on /project?project=noplp-lyrics; the image is public/img/projects/noplp-lyrics.webp
+name: NOPLP Lyrics
+order: 10
+date: '2024-09-20'
+languages:
+- Python
+tags:
+- SimplePyGUI
+- Web Scraping
+- Git
+- Github
+summary:
+  en: >-
+    An application designed to display the lyrics of songs for the French TV show " N'Oubliez Pas Les Paroles "
+    from NOPLP Wiki Fandom.
+  fr: >-
+    Une application conçue pour afficher les paroles des chansons de l'émission de télévision française " N'Oubliez
+    Pas Les Paroles " du wiki .
+description:
+  en: >-
+    NOPLP Lyrics is a Python application based on PySimpleGUI and Tkinter that displays the lyrics of songs from
+    the show 'N'Oubliez Pas Les Paroles' using WikiFandom. The goal of this software is to show not the official
+    lyrics, but the lyrics expected by the show, which may differ from the official ones. I used web scraping to
+    automatically retrieve the lyrics from WikiFandom.
+  fr: >-
+    NOPLP Lyrics est une application python basé sur PySimpleGui et Tktinter permettant d'afficher les paroles des
+    chansons de l'émission " N'Oubliez Pas Les Paroles " depuis le WikiFandom. L'objectif de ce logiciel est d'afficher
+    non pas les paroles officielles des chansons mais les paroles attendues par l'émission qui peuvent différer
+    des paroles officielles. J'ai pour cela utilisé du WebScraping afin de récupérer automatiquement les paroles
+    depuis le Wikifandom.

@@ -1,0 +1,23 @@
+DirectoryIndex index.php
+
+ErrorDocument 404 /404.php
+
+Options -Indexes
+
+RewriteEngine On
+
+# The NOPLP Lyrics page used to have its own copies under /project/
+RewriteRule ^project/([a-z0-9-]+)(\.php)?/?$ /project?project=$1 [R=301,L]
+
+# Redirect URL/file.php to URL/file
+RewriteCond %{THE_REQUEST} ^[A-Z]{3,}\s/([^.]+)\.php [NC]
+RewriteRule ^([^.]+)\.php$ /$1 [R=301,L]
+
+# Old links of the footer
+RewriteRule ^(projects|blog)\.html$ /$1 [R=301,L]
+
+# Redirect URL/file to URL/file.php if the .php file exists
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteCond %{REQUEST_FILENAME}.php -f
+RewriteRule ^(.*[^/])/?$ $1.php [NC,L]

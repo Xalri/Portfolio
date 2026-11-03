@@ -1,0 +1,29 @@
+# Shown on /project?project=portfolio; the image is public/img/projects/portfolio.webp
+name: Portfolio
+order: 50
+languages:
+- HTML
+- CSS
+- Javascript
+- PHP
+tags:
+- Web Development
+summary:
+  en: >-
+    This portfolio is a project that I created to showcase my work and skills. It is built using HTML, CSS, JavaScript
+    and a bit of PHP.
+  fr: >-
+    Ce portfolio est un projet que j'ai créé pour présenter mon travail et mes compétences. Il est construit en
+    utilisant HTML, CSS, JavaScript et un peu de PHP.
+description:
+  en: >-
+    This portfolio is a real challenge for me. It represents me digitally and allows me to show what I am capable
+    of. I spent a lot of time designing the site to match my logo made by Rex14. This second version of my portfolio,
+    made in HTML/CSS/JS/PHP, includes a contact page to start a conversation from the site.
+    A blog is on its way.
+  fr: >-
+    Ce portfolio est un vrai challenge pour moi. Il me représente numériquement et permet de montrer ce dont je
+    suis capable. J'ai passé beaucoup de temps à conçevoir le design de ce site en accord avec mon logo réalisé
+    par Rex14. Cette deuxième version de mon portfolio réaliser en HTML/CSS/JS/PHP inclut une page de contact me
+    permettant d'ouvrir une discussion depuis le site.
+    Un blog est en préparation.

@@ -1,0 +1,25 @@
+# Shown on /project?project=pterodactyl-panel; the image is public/img/projects/pterodactyl-panel.webp
+name: Pterodactyl Panel
+order: 30
+languages: []
+tags:
+- Docker
+- VPS
+- Open-Source
+- Server Management
+summary:
+  en: >-
+    I installed an open-source panel called Pterodactyl and configured it with multiple vps to manage a large variety
+    of services.
+  fr: >-
+    J'ai installe un panel open-source appelé Pterodactyl. J'ai mis en place le panel avec plusieurs vps pour gérer
+    une grande variété de services.
+description:
+  en: >-
+    Pterodactyl is open-source software that allows you to deploy and manage game servers from a panel. I installed
+    and configured this software to deploy my own game servers and to get started with Linux systems. Pterodactyl
+    was my first project related to Linux.
+  fr: >-
+    Pterodactyl est un logiciel Open-Source permettant de deployer des serveurs de jeu et de les gérer depuis un
+    panel. J'ai installé et configuré ce logiciel afin de pouvoir déployer mes propres serveurs de jeu et également
+    de pouvoir m'initier aux systèmes Linux. Pterodactyl est mon premier projet en rapport avec Linux.

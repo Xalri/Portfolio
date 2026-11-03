@@ -1,0 +1,28 @@
+# Shown on /project?project=discord-bot; the image is public/img/projects/discord-bot.webp
+name: Bot Discord
+order: 20
+languages:
+- Javascript
+- NodeJS
+tags:
+- DiscordJS
+- MongoDB
+summary:
+  en: >-
+    I made some discord bot for a a lot of purpose. Automatic message for each youtube video upload, whole moderation
+    system, giveaway, games, and more.
+  fr: >-
+    J'ai fais quelques bot discord pour plein d'utilisation différente. Message automatique à chaqque sortie de
+    vidéo youtube, système de moderation complet, giveaway, jeux, et plus.
+description:
+  en: >-
+    The Discord bots I created are very diverse. I made moderation bots to help manage servers, fun bots with commands
+    and entertaining actions, and utility bots such as a complete ticket system with permissions, transcription,
+    and ticket organization. For this, I used MongoDB databases and APIs for notifications when a YouTube video
+    is uploaded or a Twitch stream goes live.
+  fr: >-
+    Les bots discord que j'ai réalisé sont très variés. En effet, j'ai fais des bots  de modération afin de faciliter
+    la gestion du serveur, des bots de loisir avec des commandes et des actions amusantes, ainsi que des bots utilitaires
+    avec par exemple un système de ticket complet comprenant les permissions, la transcription et l'organisation
+    des tickets. Pour cela j'ai eu recours à des bases de donnée MongoDB ainsi qu'a des APIs pour des notifications
+    en cas de vidéo Youtube ou de live Twitch.

@@ -1,0 +1,30 @@
+# Shown on /project?project=time-clicker; the image is public/img/projects/time-clicker.webp
+name: Time Clicker
+order: 40
+languages:
+- Python
+tags:
+- Pygame
+- Game Development
+- School Project
+- Github
+- Git
+summary:
+  en: >-
+    Time Clicker is a school project i made with 2 friends. It is a clicker game where you earn time units to gain
+    timeline in order to discord new era.
+  fr: >-
+    Time Clicker est un projet scolaire que j'ai réalisé avec 2 amis. C'est un jeu de clic où vous gagnez des unités
+    de temps pour gagner une chronologie afin de découvrir une nouvelle ère.
+description:
+  en: >-
+    Time Clicker is a project I made during my final year of high school. It is a clicker-type game where you click
+    to get more resources. This project was made with two friends as a group. I learned how to secure user data,
+    manage display, rendering, and optimization, as well as create a standalone version for Windows and its associated
+    installer.
+  fr: >-
+    Time Clicker est un projet que j'ai réalisé lors de mon année de Terminale. Il s'agit d'un jeu de type " Clicker
+    " qui consiste à cliquer pour avoir plus de ressource. Ce projet a été réalisé à l'aide de 2 amis avec qui nous
+    formions un groupe. J'ai pu apprendre à sécuriser les données utilisateurs, à gérer l'affichage, le rendu et
+    l'optimisation ainsi que la création d'une version autonome dite " Standalone " pour windows et son installateur
+    assoscié.
