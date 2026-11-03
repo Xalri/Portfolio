@@ -1,0 +1,891 @@
+/**************************************************************
+
+*********************** MAIN **********************************
+
+**************************************************************/
+
+main {
+
+  margin: 2em auto;
+
+  padding: 0 1em;
+
+  color: #eeeeee;
+
+  /* opacity: 0; */
+
+}
+
+
+
+
+
+
+
+section {
+
+  margin-bottom: 23em;
+
+  /* background: #EEEEEE; */
+
+  padding: 1.5em;
+
+  width: 100%;
+
+}
+
+
+
+form label {
+
+  display: block;
+
+  margin-top: 1em;
+
+}
+
+
+
+input,
+
+textarea {
+
+  width: 100%;
+
+  padding: 0.5em;
+
+  margin-top: 0.3em;
+
+  border: 1px solid #ccc;
+
+  border-radius: 4px;
+
+  box-sizing: border-box;
+
+}
+
+
+
+/* button {
+
+      margin-top: 1em;
+
+      padding: 0.7em 2em;
+
+      background: #222;
+
+      color: #EEEEEE;
+
+      border: none;
+
+      border-radius: 4px;
+
+      cursor: pointer;
+
+  } */
+
+
+
+/**************************************************************
+
+  *********************** ABOUT ME ******************************
+
+  **************************************************************/
+
+
+
+#about {
+
+  display: flex;
+
+  flex-direction: row;
+
+  align-items: center;
+
+  justify-content: space-around;
+
+  gap: 2em;
+
+  overflow-x: hidden;
+
+}
+
+
+
+#about .text {
+
+  display: flex;
+
+  flex-direction: column;
+
+  max-width: 40%;
+
+}
+
+
+
+#about .text h3 {
+
+  font-size: 1.5em;
+
+  color: #eeeeee;
+
+  /* color: gray; */
+
+  margin-bottom: 5px;
+
+}
+
+#about .text h3.in-view {
+
+  animation: appearFromLeft 1s ease-in-out forwards 1s;
+
+}
+
+
+
+#about .text h1 {
+
+  font-size: 5em;
+
+  font-family: "Lexend";
+
+  opacity: 0;
+
+}
+
+
+
+#about .text h1.in-view {
+
+  animation: appearFromTop 0.5s ease-in-out forwards 0.5s;
+
+}
+
+
+
+#about .text p {
+
+  margin-top: 20px;
+
+  color: gray;
+
+  font-size: 1.5em;
+
+}
+
+#about .text p.in-view {
+
+  animation: appearFromBottom 0.5s ease-in-out forwards 1.5s;
+
+}
+
+
+
+#about .clear-infos {
+
+  margin-top: 20px;
+
+  display: flex;
+
+  flex-direction: row;
+
+  align-items: center;
+
+  /* justify-content: space-between; */
+
+  gap: 3em;
+
+}
+
+
+
+#about .clear-infos.in-view {
+
+  animation: appearFromLeft 1s ease-in-out forwards 1.5s;
+
+}
+
+
+
+#about .clear-infos .element {
+
+  display: flex;
+
+  flex-direction: row;
+
+  align-items: center;
+
+  justify-content: center;
+
+  gap: 0.3em;
+
+}
+
+
+
+#about .clear-infos .element img {
+
+  height: 40px;
+
+  width: 40px;
+
+}
+
+
+
+#about .clear-infos .element p {
+
+  margin-top: 0;
+
+  font-size: 1em;
+
+}
+
+
+
+#about img {
+
+  width: 25em;
+
+  border-radius: 20px;
+
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+
+}
+
+
+
+#about img.in-view {
+
+  animation: appearFromRight 0.5s ease-in-out forwards 1s;
+
+}
+
+
+
+/**************************************************************
+
+*********************** SKILLS ********************************
+
+**************************************************************/
+
+
+
+#skills {
+
+  display: flex;
+
+  flex-direction: column;
+
+  align-items: center;
+
+  justify-content: space-around;
+
+  gap: 2em;
+
+  overflow-x: hidden;
+
+}
+
+
+
+#skills h3 {
+
+  font-size: 1.5em;
+
+  color: #eeeeee;
+
+  /* color: gray; */
+
+  margin-bottom: -15px;
+
+}
+
+#skills h3.in-view {
+
+  animation: appearFromLeft 1s ease-in-out forwards 0s;
+
+}
+
+
+
+#skills .carousel {
+
+  margin: 0 auto;
+
+  padding: 20px 0;
+
+  max-width: 600px;
+
+  overflow: hidden;
+
+  display: flex;
+
+  backdrop-filter: blur(5px);
+
+  /* background-color: #EEEEEE; */
+
+  background-color: rgba(0, 0, 0, 0.1);
+
+  border-radius: 20px;
+
+  /* border: #EEEEEE solid 1px; */
+
+}
+
+
+
+#skills .carousel.in-view {
+
+  animation: appearFromBottom 0.5s ease-in-out forwards 0.5s;
+
+}
+
+
+
+#skills .carousel .group {
+
+  display: flex;
+
+  gap: 20px;
+
+  padding-right: 20px;
+
+  animation: scrolling 10s linear infinite;
+
+}
+
+#skills .carousel img {
+
+  width: 8em;
+
+}
+
+
+
+@keyframes scrolling {
+
+  0% {
+
+    transform: translateX(0);
+
+  }
+
+  100% {
+
+    transform: translateX(-100%);
+
+  }
+
+}
+
+@keyframes appearFromTop {
+
+  0% {
+
+    transform: translateY(-100%);
+
+    opacity: 0;
+
+  }
+
+  100% {
+
+    transform: translateY(0);
+
+    opacity: 1;
+
+  }
+
+}
+
+
+
+#skills .progress-bar {
+
+  display: flex;
+
+  flex-direction: column;
+
+  align-items: center;
+
+  max-width: 100%;
+
+  width: 100%;
+
+  /* margin-left: 30%; */
+
+  gap: 20px;
+
+}
+
+
+
+#skills .progress-bar .element {
+
+  display: flex;
+
+  flex-direction: row;
+
+  align-items: center;
+
+  justify-content: space-between;
+
+  /* width: 100%; */
+
+  gap: 20px;
+
+  padding-right: 5em;
+
+}
+
+
+
+#skills .progress-bar .element.right.in-view {
+
+  animation: appearFromRight 1s ease-in-out forwards 0.5s;
+
+}
+
+
+
+#skills .progress-bar .element.left.in-view {
+
+  animation: appearFromLeft 1s ease-in-out forwards 0.5s;
+
+}
+
+
+
+#skills .progress-bar .element img {
+
+  width: 200px;
+
+  /* background-color: #EEEEEE; */
+
+  /* border-radius: 50%; */
+
+  padding: -10px;
+
+}
+
+
+
+#skills .progress-bar .element .element-progress-bar {
+
+  display: flex;
+
+  flex-direction: row;
+
+  gap: 10px;
+
+  width: 100%;
+
+  height: 20px;
+
+  /* background-color: #ccc; */
+
+  border-radius: 5px;
+
+  margin-left: 10px;
+
+}
+
+
+
+#skills .progress-bar .element .element-progress-bar .dot {
+
+  width: 50px;
+
+  background-color: #eeeeee;
+
+  border-radius: 10px;
+
+  position: relative;
+
+}
+
+
+
+#skills .progress-bar .element .element-progress-bar .dot.mid::before {
+
+  content: "50%";
+
+  position: absolute;
+
+  top: 120%;
+
+  left: calc(70% + 10px);
+
+}
+
+
+
+#skills .progress-bar .element .element-progress-bar .dot.ok {
+
+  background-color: green;
+
+}
+
+
+
+/**************************************************************
+
+*********************** PROJECTS ******************************
+
+**************************************************************/
+
+#projects {
+
+  display: flex;
+
+  flex-direction: column;
+
+  align-items: center;
+
+  /* justify-content: space-around; */
+
+  gap: 2em;
+
+}
+
+
+
+#projects .projects-container {
+
+  display: flex;
+
+  flex-direction: row;
+
+  align-items: center;
+
+  gap: 2em;
+
+  flex-wrap: wrap;
+
+  max-width: calc(22em * 3 + 2em * 2);
+
+}
+
+
+
+#projects .projects-container .project-card {
+
+  display: flex;
+
+  flex-direction: column;
+
+  text-decoration: none;
+
+  align-items: center;
+
+  justify-content: start;
+
+  /* gap: 1em; */
+
+  width: 22em;
+
+  height: 38em;
+
+  /* background-color: #222; */
+
+  color: #eeeeee;
+
+  border-radius: 20px;
+
+  /* padding: 1em; */
+
+  transition: transform 0.2s;
+
+  box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2);
+
+}
+
+
+
+#projects .projects-container .project-card:hover {
+
+  transform: translateY(-20px);
+
+}
+
+
+
+#projects .projects-container .project-card img {
+
+  width: 100%;
+
+
+
+  /* height: 300px; */
+
+  border-radius: 20px 20px 0 0;
+
+  object-fit: cover;
+
+  /* border-bottom: #8E1616 solid 1px; */
+
+}
+
+
+
+#projects .projects-container .project-card .infos {
+
+  padding: 1em;
+
+  height: 100%;
+
+  display: flex;
+
+  flex-direction: column;
+
+  gap: 1em;
+
+  border-radius: 0 0 20px 20px;
+
+  border: #8E1616 solid 1px;
+
+  border-top-width: 2px;
+
+  transition: background-color 0.2s;
+
+  width: 22em;
+
+  /* border-top: none; */
+
+
+
+}
+
+
+
+#projects .projects-container .project-card:hover .infos {
+
+  background-color: rgb(142, 22, 22, 0.2);
+
+}
+
+
+
+#projects .projects-container .project-card .infos h3 {
+
+  text-align: center;
+
+}
+
+
+
+#projects .projects-container .project-card .infos .tags {
+
+  display: flex;
+
+  flex-direction: row;
+
+  align-items: center;
+
+  justify-content: center;
+
+  gap: 1em;
+
+  margin: 0.5em 0;
+
+  flex-wrap: wrap;
+
+  height: 100%;
+
+
+}
+
+#projects .projects-container .project-card .infos .tags span {
+
+  /* background-color: rgb(142, 22, 22, 0.05); */
+
+  color: #EEEEEE;
+
+  border: #8E1616 solid 1px;
+
+  padding: 0.5em 1em;
+
+
+
+  border-radius: 5px;
+
+  font-size: 0.8em;
+
+}
+
+
+
+#projects .projects-container .project-card .infos a:not(.view-project) {
+
+  color: #EEEEEE;
+
+}
+
+
+
+#projects .projects-container .project-card .infos a.view-project {
+
+  display: block;
+
+  text-align: end;
+
+  color: #EEEEEE;
+
+}
+
+
+
+@media (max-width: 768px) {
+  html {
+    width: fit-content;
+  }
+
+  #about img.me {
+
+    display: none;
+
+  }
+
+
+
+  #about .text {
+
+    max-width: 100%;
+
+  }
+
+
+
+  body {
+
+
+    width: fit-content;
+
+  }
+
+  body,
+  * {
+    scrollbar-width: none;
+    /* Firefox */
+    -ms-overflow-style: none;
+    /* IE and Edge */
+  }
+
+  body::-webkit-scrollbar,
+  *::-webkit-scrollbar {
+    display: none;
+    /* Chrome, Safari, Opera */
+  }
+
+
+
+  #skills h3 {
+
+    font-size: 3.5em;
+
+  }
+
+  #skills .progress-bar .element img {
+    width: 6.5em;
+  }
+
+  #skills .progress-bar .element .element-progress-bar {
+    gap: 0.7em;
+    height: 1.3em;
+    margin-left: 0;
+  }
+
+  #skills .progress-bar .element .element-progress-bar .dot {
+    width: 2.1em;
+  }
+
+  #skills .carousel {
+    max-width: 20em;
+  }
+
+
+
+  #skills .carousel img {
+
+    width: 5em;
+
+  }
+
+
+
+  #projects .projects-container {
+
+    flex-wrap: nowrap;
+
+    max-width: 22em;
+    overflow-x: scroll;
+    /* Ensure scrollbar appears at bottom */
+    overflow-y: hidden;
+    /* Prevent vertical scrollbar */
+    scrollbar-width: thin !important;
+    /* Firefox */
+    -ms-overflow-style: auto !important;
+    /* IE and Edge */
+    scrollbar-gutter: stable !important;
+  }
+
+  #projects .projects-container::-webkit-scrollbar {
+    height: 16px !important;
+    /* Chrome, Safari, Opera */
+    bottom: 0 !important;
+    /* Not strictly necessary, but clarifies intent */
+    display: block !important;
+  }
+
+
+
+  #skills .progress-bar {
+
+    flex-direction: column;
+
+    gap: 3.5em;
+
+  }
+
+
+
+  #skills .progress-bar .element {
+
+    flex-direction: column;
+
+    /* align-items: center; */
+
+    gap: 1em;
+
+    padding-right: 0;
+
+  }
+
+
+
+
+
+  #projects {
+
+    padding: 0;
+
+  }
+
+
+
+
+
+
+  header {
+
+    width: auto;
+
+  }
+
+
+
+
+
+}
