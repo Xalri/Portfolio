@@ -1,45 +1,12 @@
-Until recently, updating this site meant copying files to a server by hand. Now a `git push` on `main` is all it
-takes: about two minutes later, the new version is live. Here is how it works, and the two things that broke
-along the way.
+Until this week the site ran in Docker, managed by Portainer. Deploying was simple: I had put Portainer's webhook
+URL directly in the GitHub repo's webhooks, so every push called it and Portainer redeployed. Nothing else.
 
-## The pipeline
+I moved it to my k3s cluster, and that setup didn't carry over as is.
 
-```text
-git push ──▶ GitHub Actions ──▶ ghcr.io ──▶ Portainer ──▶ k3s
-                                    └──────▶ Keel ───────▶ restart
-```
+## What it looks like now
 
-Three pieces:
-
-1. **A Docker image** with PHP 8.4 and Apache, serving only the `public/` folder.
-2. **A GitHub Actions workflow** that builds that image and pushes it to GitHub's registry.
-3. **My k3s cluster**, running on a small VPS, which pulls the image and runs it.
-
-## The image
-
-The `Dockerfile` has two stages. The first one installs the Composer dependencies, the second one copies them
-next to the code in the official `php:8.4-apache` image:
-
-```dockerfile
-FROM composer:2 AS vendor
-WORKDIR /app
-COPY composer.json composer.lock ./
-RUN composer install --no-dev --no-interaction --prefer-dist
-
-FROM php:8.4.27-apache
-ENV APACHE_DOCUMENT_ROOT=/var/www/html/public
-COPY --from=vendor /app/vendor vendor
-COPY src src
-COPY public public
-```
-
-Only `public/` is reachable from the web: the code, the content and `vendor/` sit next to it, out of reach. Composer
-itself never ends up in the final image.
-
-## The workflow
-
-On each push to `main`, the workflow builds the image and pushes it with two tags: `main`, which the cluster
-runs, and the commit hash, so I can always go back to an exact version.
+On every push to `main`, a GitHub Actions workflow builds the image and pushes it to ghcr.io. I tag it twice,
+`main` and the commit hash, so I can always go back to a given version:
 
 ```yaml
 tags: |
@@ -47,19 +14,18 @@ tags: |
   ghcr.io/xalri/portfolio:${{ github.sha }}
 ```
 
-Then it calls Portainer's webhook, which applies `k8s/production.yaml` to the cluster.
+Then it calls Portainer's webhook, same as before, and Portainer applies `k8s/production.yaml` to the cluster.
 
-## Trap #1: nothing restarted
+## The site didn't update
 
-The first deploy worked. The second one… did nothing. The new image was on ghcr.io, Portainer said the stack was
-updated, and the old site was still online.
+First deploy: fine. Second one: the workflow was green, the new image was on ghcr.io, and the site was still the
+old one.
 
-The reason: the manifest always says `image: ghcr.io/xalri/portfolio:main`. From Kubernetes' point of view, the
-Deployment did not change at all, so there was nothing to roll out. `imagePullPolicy: Always` only matters when a
-pod *starts*; it does not restart running ones.
+It took me a moment. The manifest always says `image: ghcr.io/xalri/portfolio:main`, so for Kubernetes nothing
+changed and there's nothing to roll out. `imagePullPolicy: Always` doesn't help either, it only applies when a pod
+starts.
 
-The fix is [Keel](https://keel.sh), a small controller that restarts a Deployment when its image is pushed again.
-Two annotations on the Deployment:
+So I added [Keel](https://keel.sh). It watches Deployments with these annotations:
 
 ```yaml
 annotations:
@@ -67,37 +33,25 @@ annotations:
   keel.sh/match-tag: "true"
 ```
 
-And one last step in the workflow tells Keel the image was pushed:
+and the workflow calls it once the image is pushed:
 
 ```bash
 curl -fsS -X POST "$KEEL" -H "Content-Type: application/json" \
   -d '{"name": "ghcr.io/xalri/portfolio", "tag": "main"}'
 ```
 
-> Lesson: with a moving tag like `main` or `latest`, *something* has to trigger the restart. Kubernetes will not
-> do it alone.
+Keel restarts the pod, the pod pulls the new image, done. (I also forgot to add the Keel secret to the repo the
+first time, so this exact post didn't show up until I did. Fitting.)
 
-## Trap #2: a 403 on every project page
+## The 403
 
-Once in the container, every `/project?project=…` page answered **403 Forbidden**, while it worked fine before.
+The other surprise: in the container, every project page returned a 403.
 
-The site had an old `project/` folder in `public/`. Apache saw the URL `/project`, found a folder with that name,
-and tried to list it, which `Options -Indexes` forbids. My rewrite rule that adds `.php` was never reached, because
-it skips anything that exists on disk:
+There was an old `project/` folder in the site. Apache saw `/project`, found a folder with that name and tried to
+list it, which is disabled. My rule that adds `.php` to URLs never ran, because it skips anything that exists on
+disk. I deleted the folder and redirected its old URLs to the new page.
 
-```apache
-RewriteCond %{REQUEST_FILENAME} !-d
-RewriteCond %{REQUEST_FILENAME}.php -f
-RewriteRule ^(.*[^/])/?$ $1.php [NC,L]
-```
+## Still to do
 
-The fix: remove the folder and redirect its old URLs to the new page with a `301`, so old links still work.
-
-## What I would do next
-
-- [x] Deploy on every push
-- [x] Keep one image per commit to roll back
-- [ ] Add a real health check instead of a TCP probe
-- [ ] Run PHP's syntax check in the workflow before building
-
-The whole setup is in the [repository](https://github.com/Xalri/portfolio) if you want to copy it.
+A proper health check instead of just checking the port is open, and running a PHP syntax check before building
+the image. Everything is in the [repo](https://github.com/Xalri/portfolio) if you want to look.
