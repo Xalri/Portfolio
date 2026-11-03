@@ -2,9 +2,9 @@ Après [le portfolio](/blog/from-push-to-production), j'ai migré tout le reste.
 Vaultwarden, Homarr, Umami, Uptime Kuma, Pterodactyl, Traccar, SearXNG, le serveur mail, le routeur Minecraft et
 mes propres apps buildées depuis GitHub. Une vingtaine de stacks Portainer au total.
 
-Docker ne me posait pas de problème. J'ai deux VPS, un chez OVH et un chez Oracle, et je voulais qu'ils forment un
-seul cluster au lieu de deux hôtes Docker séparés. Et je voulais apprendre Kubernetes sur des trucs que j'utilise
-vraiment.
+Docker ne me posait pas de problème. Ce qui a tout déclenché, c'est un deuxième VPS, chez Oracle, à côté de celui
+d'OVH. Avec deux machines, je voulais un seul cluster plutôt que deux hôtes Docker séparés, et c'était le bon moment
+pour apprendre Kubernetes sur des trucs que j'utilise vraiment.
 
 ## Pareil, en plus long
 

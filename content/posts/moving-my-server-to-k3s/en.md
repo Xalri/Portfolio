@@ -2,8 +2,9 @@ After [the portfolio](/blog/from-push-to-production), I moved everything else. N
 Vaultwarden, Homarr, Umami, Uptime Kuma, Pterodactyl, Traccar, SearXNG, the mail server, the Minecraft router and
 my own apps built from GitHub. About twenty-five Portainer stacks in total.
 
-Docker wasn't a problem for me. I have two VPS, one at OVH and one at Oracle, and I wanted them to work as one
-cluster instead of two separate Docker hosts. And I wanted to learn Kubernetes on things I actually use.
+Docker wasn't a problem for me. What changed is that I got a second VPS, at Oracle, next to the OVH one. With two
+machines I wanted one cluster rather than two separate Docker hosts, and it was the right moment to learn
+Kubernetes on things I actually use.
 
 ## Same thing, more lines
 
