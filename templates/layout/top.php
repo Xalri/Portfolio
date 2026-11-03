@@ -1,7 +1,8 @@
 <?php
 /**
  * Start of every page, down to the header: $title, $active (the nav entry of the page: home, projects, blog or
- * contact; none on the others), $css (the page's stylesheet in public/, optional), $favicon (optional).
+ * contact; none on the others), $css (the page's stylesheet in public/, optional), $favicon (optional),
+ * $description (for search engines and link previews, optional).
  *
  * @var Portfolio\View $view
  * @var array $site
@@ -12,6 +13,7 @@ use Portfolio\View;
 $active ??= null;
 $css ??= null;
 $favicon ??= '/img/logo-background.png';
+$description ??= null;
 $analytics = $site['analytics'];
 
 $nav = [
@@ -27,6 +29,10 @@ $nav = [
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title><?= View::e($title) ?></title>
+<?php if ($description !== null): ?>
+    <meta name="description" content="<?= View::e($description) ?>">
+<?php endif; ?>
+    <link rel="alternate" type="application/rss+xml" title="Xalri - Blog" href="/blog/feed">
     <link rel="stylesheet" href="<?= $view->asset('style.css') ?>">
 <?php if ($css !== null): ?>
     <link rel="stylesheet" href="<?= $view->asset($css) ?>">

@@ -1,0 +1,21 @@
+# A template, never published (folders starting with _ are skipped). To write a post, copy this folder to
+# content/posts/<slug>/: the slug is its URL, /blog/<slug>, in lowercase letters, digits and dashes.
+# The text goes in en.md and fr.md; with only one of them, it is shown in both languages, with a note.
+
+# A plain string is the same in both languages
+title:
+  en: An example post
+  fr: Un exemple d'article
+# On the cards of /blog, in the RSS feed and for search engines
+summary:
+  en: What a post's folder holds, and how it is shown.
+  fr: Ce que contient le dossier d'un article, et comment il est affiché.
+# Posts dated in the future stay hidden until that day
+date: 2026-11-03
+# Optional: the filters of /blog
+tags:
+- Meta
+# Optional: hidden from the public while true. BLOG_PREVIEW=1 shows drafts and scheduled posts.
+draft: true
+# Optional: an image of public/, e.g. /img/blog/<slug>/cover.webp, on the card and above the text
+# cover: /img/blog/example/cover.webp

@@ -9,6 +9,10 @@ RewriteEngine On
 # The NOPLP Lyrics page used to have its own copies under /project/
 RewriteRule ^project/([a-z0-9-]+)(\.php)?/?$ /project?project=$1 [R=301,L]
 
+# The blog: its feed, then one post per folder of content/posts/
+RewriteRule ^blog/feed/?$ /feed.php [L]
+RewriteRule ^blog/([a-z0-9-]+)/?$ /post.php?slug=$1 [L,QSA]
+
 # Redirect URL/file.php to URL/file
 RewriteCond %{THE_REQUEST} ^[A-Z]{3,}\s/([^.]+)\.php [NC]
 RewriteRule ^([^.]+)\.php$ /$1 [R=301,L]

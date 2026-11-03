@@ -12,6 +12,12 @@ return [
         'google_tag' => 'G-N5G8BQ48XX',
     ],
 
+    'blog' => [
+        // BLOG_PREVIEW=1 also lists the drafts and the posts dated in the future, to read them before they are out
+        'preview' => getenv('BLOG_PREVIEW') === '1',
+        'per_page' => 10,
+    ],
+
     'contact' => [
         // smtp://user:pass@host:port, e.g. the cluster's mailserver on its submission port
         'dsn' => getenv('MAILER_DSN') ?: null,

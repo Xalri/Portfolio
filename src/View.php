@@ -44,10 +44,10 @@ final class View
         return "$path?v={$this->versions[$path]}";
     }
 
-    /** An interface string, in English, for the element's content */
-    public function t(string $key): string
+    /** An interface string, in English unless asked otherwise, for the element's content */
+    public function t(string $key, string $lang = Translator::DEFAULT): string
     {
-        return $this->translator->text($key);
+        return $this->translator->text($key, $lang);
     }
 
     /** The data-fr / data-en attributes of an interface string */
