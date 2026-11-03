@@ -1,0 +1,11 @@
+title:
+  en: From git push to production on my own k3s cluster
+  fr: De git push à la production sur mon propre cluster k3s
+summary:
+  en: How this portfolio deploys itself on every push, with GitHub Actions, Portainer and Keel, and the two traps I fell into on the way.
+  fr: Comment ce portfolio se déploie tout seul à chaque push, avec GitHub Actions, Portainer et Keel, et les deux pièges dans lesquels je suis tombé en chemin.
+date: 2026-11-03
+tags:
+- Docker
+- Kubernetes
+- DevOps
