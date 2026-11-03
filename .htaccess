@@ -6,6 +6,10 @@ RewriteEngine On
 
 Options -Indexes
 
+# /project is both project.php and the project/ folder: don't let Apache add a slash and land on the folder
+DirectorySlash Off
+RewriteRule ^project/?$ project.php [L,QSA]
+
 # Make accueil.php the default index file
 
 
