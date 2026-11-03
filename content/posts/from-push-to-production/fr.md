@@ -51,8 +51,3 @@ Il restait un vieux dossier `project/` dans le site. Apache voyait `/project`, t
 essayait de le lister, ce qui est désactivé. Ma règle qui ajoute `.php` aux URL ne s'exécutait jamais, parce
 qu'elle ignore tout ce qui existe sur le disque. J'ai supprimé le dossier et redirigé ses anciennes URL vers la
 nouvelle page.
-
-## Ce qu'il reste à faire
-
-Un vrai health check au lieu de juste vérifier que le port répond, et un check de syntaxe PHP avant de build
-l'image. Tout est sur le [repo](https://github.com/Xalri/portfolio) si vous voulez jeter un œil.

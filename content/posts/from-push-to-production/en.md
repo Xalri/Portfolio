@@ -50,8 +50,3 @@ The other surprise: in the container, every project page returned a 403.
 There was an old `project/` folder in the site. Apache saw `/project`, found a folder with that name and tried to
 list it, which is disabled. My rule that adds `.php` to URLs never ran, because it skips anything that exists on
 disk. I deleted the folder and redirected its old URLs to the new page.
-
-## Still to do
-
-A proper health check instead of just checking the port is open, and running a PHP syntax check before building
-the image. Everything is in the [repo](https://github.com/Xalri/portfolio) if you want to look.
