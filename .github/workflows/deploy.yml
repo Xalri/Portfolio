@@ -1,6 +1,8 @@
 # Builds the image at each push to main, pushes it to GitHub's registry, then has Portainer redeploy the
 # Kubernetes stack (k8s/production.yaml). The webhook URL is the repository secret PORTAINER_K8S_WEBHOOK;
-# each image is also tagged with its commit, to go back to it. Keel picks up the new :main image by polling.
+# each image is also tagged with its commit, to go back to it.
+# Then tells Keel the image was pushed (secret KEEL_WEBHOOK_URL), so it restarts the app on it: the manifest
+# names the same tag, so applying it alone restarts nothing.
 name: Deploy
 
 on:
@@ -46,3 +48,15 @@ jobs:
             exit 0
           fi
           curl -fsS -X POST "$WEBHOOK"
+
+      - name: Tell Keel the image was pushed
+        env:
+          KEEL: ${{ secrets.KEEL_WEBHOOK_URL }}
+        run: |
+          # Skipped until the secret is set: the app keeps running its previous image
+          if [ -z "$KEEL" ]; then
+            echo "No Keel webhook secret, nothing restarted"
+            exit 0
+          fi
+          curl -fsS -X POST "$KEEL" -H "Content-Type: application/json" \
+            -d '{"name": "ghcr.io/xalri/portfolio", "tag": "main"}'

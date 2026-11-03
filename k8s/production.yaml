@@ -7,12 +7,10 @@ metadata:
   namespace: portfolio
   labels:
     app: website
-  # Keel polls ghcr and restarts the app when the :main image changes
+  # Restarted by Keel when the workflow says its image was pushed again
   annotations:
     keel.sh/policy: force
     keel.sh/match-tag: "true"
-    keel.sh/trigger: poll
-    keel.sh/pollSchedule: "@every 5m"
 spec:
   replicas: 1
   selector:
