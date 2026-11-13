@@ -1,0 +1,4 @@
+pr: none
+steps:
+  - hello: echo "hi from $(git log -1 --format=%s)"
+  - in-image: { image: alpine, run: ls /src }
