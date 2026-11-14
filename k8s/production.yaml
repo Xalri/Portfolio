@@ -26,8 +26,6 @@ spec:
       nodeSelector:
         kubernetes.io/hostname: vps-ovh
       enableServiceLinks: false
-      imagePullSecrets:
-        - name: ghcr
       containers:
         - name: website
           image: ghcr.io/xalri/portfolio:main
