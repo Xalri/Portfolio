@@ -1,0 +1,12 @@
+# Deploys the portfolio at each push to main, through portainer-cd (https://cd.xalri.fr).
+# Builds the image, pushes it as :main (what k8s/production.yaml runs) and as the commit's SHA (to go
+# back to it), then redeploys the Portainer stack and waits until the new pod is ready.
+trigger: [main]
+pr: none
+
+env:
+  IMAGE: ghcr.io/xalri/portfolio
+
+steps:
+  - build: docker build -t $IMAGE:main -t $IMAGE:$CD_SHA . && docker push --all-tags $IMAGE
+  - deploy
