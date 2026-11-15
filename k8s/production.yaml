@@ -26,6 +26,8 @@ spec:
       nodeSelector:
         kubernetes.io/hostname: vps-ovh
       enableServiceLinks: false
+      imagePullSecrets:
+        - name: registry-1   # created by Portainer when the ghcr registry is given access to this namespace
       containers:
         - name: website
           image: ghcr.io/xalri/portfolio:main
