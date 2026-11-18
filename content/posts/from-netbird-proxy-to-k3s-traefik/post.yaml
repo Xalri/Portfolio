@@ -1,0 +1,10 @@
+title:
+  en: Dropping the NetBird reverse proxy for k3s Traefik
+  fr: Du reverse proxy NetBird au Traefik de k3s
+summary:
+  en: My services are now exposed by the Traefik that ships with k3s, through Ingresses next to each app. NetBird goes back to being the network.
+  fr: Mes services passent maintenant par le Traefik fourni avec k3s, avec une Ingress à côté de chaque app. NetBird redevient juste le réseau.
+date: 2026-11-18
+tags:
+- Kubernetes
+- DevOps
