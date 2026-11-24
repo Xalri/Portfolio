@@ -8,7 +8,7 @@ RUN composer install --no-dev --no-interaction --prefer-dist --no-scripts --no-a
 COPY src src
 RUN composer dump-autoload --no-dev --classmap-authoritative
 
-FROM php:8.4.27-apache
+FROM php:8.6.0RC7-apache
 
 ENV APACHE_DOCUMENT_ROOT=/var/www/html/public
 
